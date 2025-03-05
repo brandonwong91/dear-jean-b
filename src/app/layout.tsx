@@ -13,21 +13,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hello Kitty's Kawaii World",
+  title: "Dear Daniel's Kawaii World",
   description:
-    "Welcome to a cute and kawaii world filled with Hello Kitty charm! Experience the adorable pink aesthetic and joyful atmosphere.",
+    "Welcome to a cute and kawaii world filled with Dear Daniel charm! Experience the adorable pink aesthetic and joyful atmosphere.",
   keywords: [
-    "Hello Kitty",
+    "Dear Daniel",
     "kawaii",
     "cute",
     "pink",
     "adorable",
     "dear-jean-b",
   ],
+  icons: {
+    icon: "/dear-daniel.png",
+    apple: "/dear-daniel.png",
+  },
   openGraph: {
-    title: "Hello Kitty's Kawaii World",
+    title: "Dear Daniel's Kawaii World",
     description:
-      "Welcome to a cute and kawaii world filled with Hello Kitty charm!",
+      "Welcome to a cute and kawaii world filled with Dear Daniel charm!",
     type: "website",
   },
 };
