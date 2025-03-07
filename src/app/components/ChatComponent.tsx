@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ChatComponent() {
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>(
-    []
-  );
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isLoading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +29,7 @@ export default function ChatComponent() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [userMessage] }),
+        body: JSON.stringify({ messages: [...messages, userMessage] }),
       });
 
       const data = await response.json();
@@ -57,14 +64,10 @@ export default function ChatComponent() {
           messages.map((msg, i) => (
             <div
               key={i}
-              className={`mb-4 ${
-                msg.role === "user" ? "text-right" : "text-left"
-              }`}
+              className={`mb-4 ${msg.role === "user" ? "text-right" : "text-left"}`}
             >
               <div
-                className={`inline-block p-3 rounded-2xl ${
-                  msg.role === "user" ? "bg-blue-100" : "bg-pink-200"
-                } max-w-[80%]`}
+                className={`inline-block p-3 rounded-2xl ${msg.role === "user" ? "bg-blue-100" : "bg-pink-200"} max-w-[80%]`}
               >
                 <p className="text-gray-800">{msg.content}</p>
               </div>
@@ -78,6 +81,7 @@ export default function ChatComponent() {
             </div>
           </div>
         )}
+        <div ref={messagesEndRef} />
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <div className="relative">
