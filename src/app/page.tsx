@@ -1,5 +1,6 @@
 import ChatComponent from "./components/ChatComponent";
 import Image from "next/image";
+import ProductList from "./components/ProductList";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-pink-100 to-pink-200 p-2 sm:p-4">
@@ -17,6 +18,7 @@ export default function Home() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pink-400 mb-4 sm:mb-8">
           Dear Daniel
         </h1>
+        <ProductList />
         <ChatComponent />
       </div>
     </main>
