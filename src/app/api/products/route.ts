@@ -3,7 +3,7 @@ const endpoint =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 
 const productContext = `
-Please provide a list of 5 recent Hello Kitty collaboration products available in Singapore.
+Please provide a list of 8 most recent or incoming Hello Kitty collaboration products available in Singapore.
 For each product, include:
 - Product name
 - Brand collaboration
