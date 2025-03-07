@@ -79,31 +79,31 @@ export default function ProductList() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <h2 className="text-2xl font-bold text-pink-500 mb-4 text-center">
+    <div className="w-full max-w-2xl mx-auto p-2 sm:p-4">
+      <h2 className="text-xl sm:text-2xl font-bold text-pink-500 mb-2 sm:mb-4 text-center">
         Latest Hello Kitty Collaborations ♡
       </h2>
       <div className="overflow-x-auto pb-4">
-        <div className="flex gap-4 min-w-full">
+        <div className="flex gap-4 min-w-max">
           {products.map((product, index) => (
             <div
               key={index}
-              className="flex-none w-72 bg-white/90 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+              className="flex-none w-72 bg-white/90 p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
               onClick={() => handleProductClick(product)}
             >
-              <h3 className="text-lg font-semibold text-pink-600 mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-pink-600 mb-1 sm:mb-2 line-clamp-1">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">
                 In collaboration with {product.brand}
               </p>
-              <p className="text-sm text-gray-700 mb-2">
+              <p className="text-xs sm:text-sm text-gray-700 mb-1 sm:mb-2 line-clamp-2">
                 {product.description}
               </p>
-              <p className="text-lg font-bold text-pink-500 mb-1">
+              <p className="text-base sm:text-lg font-bold text-pink-500 mb-1 line-clamp-1">
                 {product.price}
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs sm:text-sm text-gray-600 line-clamp-1">
                 Available at {product.location}
               </p>
               <p className="text-xs text-gray-400 mt-2 italic">
