@@ -54,8 +54,8 @@ export default function ChatComponent() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 bg-white/90 rounded-3xl shadow-lg">
-      <div className="h-[400px] overflow-y-auto mb-4 p-4 bg-pink-50 rounded-2xl">
+    <div className="w-full max-w-2xl mx-auto p-2 sm:p-4 bg-white/90 rounded-3xl shadow-lg">
+      <div className="h-[calc(100vh-200px)] sm:h-[400px] overflow-y-auto mb-4 p-2 sm:p-4 bg-pink-50 rounded-2xl">
         {messages.length === 0 ? (
           <div className="text-center text-pink-400 py-8">
             Hello! I&apos;m Dear Daniel! Let&apos;s chat! ♡
@@ -83,24 +83,24 @@ export default function ChatComponent() {
         )}
         <div ref={messagesEndRef} />
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-        <div className="relative">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+        <div className="relative flex-1">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message here... ♡"
-            className="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:border-pink-400 text-gray-400 text-base font-medium tracking-wide"
+            className="w-full p-2 sm:p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:border-pink-400 text-gray-700 text-sm sm:text-base font-medium tracking-wide"
             disabled={isLoading}
           />
-          <span className="absolute right-3 bottom-3 text-sm text-pink-400">
+          <span className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 text-xs sm:text-sm text-pink-400">
             {input.length} ♪
           </span>
         </div>
         <button
           type="submit"
           disabled={isLoading}
-          className="px-6 py-3 bg-pink-400 hover:bg-pink-500 text-white rounded-xl transition-colors disabled:opacity-50"
+          className="px-4 sm:px-6 py-2 sm:py-3 bg-pink-400 hover:bg-pink-500 text-white rounded-xl transition-colors disabled:opacity-50 text-sm sm:text-base"
         >
           Send ♡
         </button>
