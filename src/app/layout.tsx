@@ -24,10 +24,6 @@ export const metadata: Metadata = {
     "adorable",
     "dear-jean-b",
   ],
-  icons: {
-    icon: "/dear-daniel.png",
-    apple: "/dear-daniel.png",
-  },
   openGraph: {
     title: "Dear Daniel's Kawaii World",
     description:
